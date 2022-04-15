@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<div class="main__block">
+    <div class="main__block__left">
+        <h1>ВХОД</h1>
+        <img src="../static/images/enter.png" alt="enter">
+    </div>
+    <div class="main__block__right">
+        <form action="#">
+            <div class="form__data">
+                <img src="../static/images/person.png" alt="login_icon">
+                <input type="text" placeholder="Логин">
+            </div>
+            <div class="form__data">
+                <img src="../static/images/password.png" alt="password_icon">
+                <input type="password" placeholder="Пароль">
+            </div>
+            <input type="submit" value="ВОЙТИ"> <br>
+            <a href="{{url_for('registration')}}" class="link__reg">Нет аккаунта? Зарегистрироваться</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

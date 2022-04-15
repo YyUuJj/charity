@@ -13,6 +13,13 @@ header {
     justify-content: center;
 }
 
+.logo__text {
+    color: black;
+}
+
+.logo__text:hover {
+    color: purple;
+}
 
 a {
     text-decoration: none;
