@@ -2,29 +2,34 @@
 {% block content %}
 {{ super() }}
     <div class="main__block">
+        {% for cat, msg in get_flashed_messages(True) %}
+            <h1 class="{{cat}}">{{msg}}</h1>
+    {% endfor %}
         <div class="main__block__left">
             <h1>РЕГИСТРАЦИЯ</h1>
             <img src="../static/images/regist.png" alt="registr">
         </div>
         <div class="main__block__right">
-            <form action="#">
+            
+            <form action="/registration", method="POST">
+                {{ form.hidden_tag() }}
                 <div class="form__data">
                     <img src="../static/images/person.png" alt="login_icon">
-                    <input type="text" placeholder="Логин">
+                    {{ form.name }} Логин
                 </div>
                 <div class="form__data">
                     <img src="../static/images/email.png" alt="email_icon">
-                    <input type="email" placeholder="Почта">
+                    {{ form.email }}  email
                 </div>
                 <div class="form__data">
                     <img src="../static/images/password.png" alt="password_icon">
-                    <input type="password" placeholder="Пароль">
+                    {{ form.psw }} password
                 </div>
                 <div class="form__data">
                     <img src="../static/images/password.png" alt="password]_icon">
-                    <input type="password" placeholder="Повторите пароль">
+                    {{ form.psw2 }} password_two
                 </div>
-                <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ"> <br>
+                {{ form.submit }} <br>
                 <a href="{{url_for('login')}}" class="link__enter">Уже есть аккаунт? Войти</a>
             </form>
         </div>
